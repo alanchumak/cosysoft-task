@@ -1,0 +1,69 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+
+.joke{
+    /* height: 75px; */
+    border: 1px solid #e3e4e7;
+    border-radius: 5px;
+    
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+
+    margin: 15px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.joke:hover{
+    background-color: #e8e8e8;
+    transition: background-color 150ms linear;
+}
+
+.joke:not(:focus) {
+    transition: background-color 150ms linear;
+}
+
+.joke span{ 
+    /* color: #5f6368; */
+    font-weight: bold;
+    /* font-weight: 500; */
+}
+
+.addBtn{
+    border: 2px solid #7d8085;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    color:#7d8085;
+    font-size: x-large;
+    text-align: center;
+    margin-right: 7px;
+
+    display: none;
+}
+
+.joke:hover .addBtn{
+    display: block;
+}
+
+.addBtn:hover{
+    background-color: #d3d3d4;
+    transition: background-color 150ms linear;
+    box-shadow: 0 0 0 5px #d3d3d4;
+    transition: box-shadow 150ms linear;
+    cursor: default;
+}
+
+.setup{
+    color: blue;
+}
+
+.punchline{
+    color: rgba(134, 3, 106, 0.863);
+}
+

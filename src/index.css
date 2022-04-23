@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* @font-face {
+  font-family: "Segoe UI";
+  src: local("Segoe UI"),
+    url("./fonts/SegoeUI.ttf") format("truetype");
+  font-weight: normal;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+
+  border: 1px solid #e3e4e7;
+  border-radius: 5px;
+  color: #277be9;
+  background-color: transparent;
+
+  margin: 15px;
+  padding: 7px 12px;
+}
+
+button:hover{
+  background-color: #e8e8e8;
+  transition: background-color 150ms linear;
+  cursor: pointer;
+}
+
+button:not(:focus){
+  transition: background-color 150ms linear;
+}
