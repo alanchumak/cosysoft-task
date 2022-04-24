@@ -12,10 +12,14 @@
 
     margin: 15px;
     cursor: default;
+    /* overflow: auto; */
 }
 
 .listItem {
-    padding: 10px 20px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
 }
 
 .listItem:hover {
@@ -30,4 +34,30 @@
 .timeAgo {
     color: #5f6368;
     font-size: 12px;
+}
+
+.bookmarkIcon {
+    margin: 0 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteBtn {
+    color:#5f6368;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    /* padding: 5px; */
+    /* border: 1px solid black; */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteBtn:hover {
+    background-color: #d3d3d4;
+    transition: background-color 150ms linear;
 }

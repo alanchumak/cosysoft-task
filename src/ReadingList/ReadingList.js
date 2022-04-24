@@ -7,13 +7,16 @@ import { BookmarkIcon } from './BookmarkIcon'
 
 const ListItem = ({joke}) => {
     let content = `Setup: ${joke.setup} Punchline: ${joke.punchline}`
-    content = `${content.substring(0, 40)}...`
+    content = `${content.substring(0, 34)}...`
     return (
         <div className={styles.listItem}>
-            {content}
-            <div className={styles.timeAgo}>Добавлено: 5 мин назад</div>
-            {/* <div><BookmarkIcon/></div> */}
-            <div><BookmarkIcon/></div>
+            <BookmarkIcon />
+            <div>
+                {content}
+                <div className={styles.timeAgo}>Добавлено: 5 мин назад</div>
+                {/* <div><BookmarkIcon/></div> */}
+            </div>
+            <div title='Удалить из список' className={styles.deleteBtn}>×</div>
         </div>
     )
 }
