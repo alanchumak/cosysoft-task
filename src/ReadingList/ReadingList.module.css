@@ -1,0 +1,33 @@
+.readingList{
+    width: 320px;
+    height: 100vh;
+    border: 1px solid #e3e4e7;
+    border-radius: 5px;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+
+    margin: 15px;
+    cursor: default;
+}
+
+.listItem {
+    padding: 10px 20px;
+}
+
+.listItem:hover {
+    background-color: #e8e8e8;
+    transition: background-color 150ms linear;
+}
+
+.listItem:not(:focus) {
+    transition: background-color 150ms linear;
+}
+
+.timeAgo {
+    color: #5f6368;
+    font-size: 12px;
+}
