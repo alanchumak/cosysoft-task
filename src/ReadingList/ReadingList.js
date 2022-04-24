@@ -1,21 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import styles from './ReadingList.module.css'
 import { selectTenJokes, fetchJokes } from '../features/jokes/jokesSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { BookmarkIcon } from './BookmarkIcon'
 
 
+function useClientRect() {
+    const [rect, setRect] = useState(null);
+    const ref = useCallback(node => {
+        if (node !== null) {
+            setRect(node.getBoundingClientRect());
+        }
+    }, []);
+    return [rect, ref];
+}
+
+
 const ListItem = ({joke}) => {
     let content = `Setup: ${joke.setup} Punchline: ${joke.punchline}`
-    content = `${content.substring(0, 34)}...`
+    
     return (
         <div className={styles.listItem}>
-            <BookmarkIcon />
-            <div>
-                {content}
-                <div className={styles.timeAgo}>Добавлено: 5 мин назад</div>
-                {/* <div><BookmarkIcon/></div> */}
-            </div>
+                <BookmarkIcon />
+            <div className={styles.text}>
+                    {content}
+                    <div className={styles.timeAgo}>Добавлено: 5 мин назад</div>
+                </div>
             <div title='Удалить из список' className={styles.deleteBtn}>×</div>
         </div>
     )

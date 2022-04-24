@@ -16,10 +16,13 @@
 }
 
 .listItem {
-    padding: 10px 0;
+    padding: 10px 18px;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
+
+    /* white-space: nowrap;
+    text-overflow: ellipsis; */
 }
 
 .listItem:hover {
@@ -37,17 +40,19 @@
 }
 
 .bookmarkIcon {
-    margin: 0 18px;
+    margin-right: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* flex: 1; */
 }
 
 .deleteBtn {
     color:#5f6368;
     font-size: 20px;
     border-radius: 50%;
-    width: 26px;
+    min-width: 26px;
     height: 26px;
     /* padding: 5px; */
     /* border: 1px solid black; */
@@ -55,9 +60,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin-left: 10px;
+    display: none;
+
+    /* flex: 1; */
+    /* flex: auto; */
+}
+
+.listItem:hover .deleteBtn {
+    display: flex;
 }
 
 .deleteBtn:hover {
     background-color: #d3d3d4;
     transition: background-color 150ms linear;
+}
+
+.text {
+    white-space: nowrap;
+    overflow: hidden;
+    /* overflow: auto; */
+    text-overflow: ellipsis;
+    /* min-width: 0; */
 }

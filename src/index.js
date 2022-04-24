@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import { JokeList } from './JokeList';
 import { ReadingList } from './ReadingList';
 
+/* Добавить overflow: auto; */
 
 ReactDOM.render(
   <React.StrictMode>
