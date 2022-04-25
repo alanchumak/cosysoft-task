@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  jokes: [],
+  jokes: {},
+  readingList: {},
   status: 'idle',
   error: null
 };
@@ -31,7 +32,19 @@ export const jokesSlice = createSlice({
       const { errMsg } = action.payload
       state.error = errMsg
     },
-    fetchJokes(){}
+    fetchJokes(){},
+    jokeSavedToReadingList(state, action) {
+      const {id} = action.payload
+      // const joke = state.jokes.find(item => item.id == id)
+      state.readingList[id] = state.jokes[id]
+    },
+    jokeRemovedFromReadingList(state, action) {
+      const { id } = action.payload
+      // const joke = state.jokes.find(item => item.id == id)
+      // state.readingList.push(joke)
+      delete state.readingList[id]
+    }
+
   },
 
     // extraReducers(builder) {
@@ -52,8 +65,10 @@ export const jokesSlice = createSlice({
   
 });
 
-export const { fetchJokes, jokesFetchedFulfilled, jokesFetchedFailed} = jokesSlice.actions
+export const { fetchJokes, jokesFetchedFulfilled, jokesFetchedFailed,
+  jokeSavedToReadingList, jokeRemovedFromReadingList } = jokesSlice.actions
 
 export const selectTenJokes = state => state.jokes.jokes
+export const selectReadingList = state => state.jokes.readingList
 
 export default jokesSlice.reducer;

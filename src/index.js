@@ -7,15 +7,16 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { JokeList } from './JokeList';
 import { ReadingList } from './ReadingList';
+import {App} from './App'
 
 /* Добавить overflow: auto; */
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <App /> */}
+      <App />
       {/* <JokeList/> */}
-      <ReadingList/>
+      {/* <ReadingList/> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

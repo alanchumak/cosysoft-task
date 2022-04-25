@@ -37,7 +37,7 @@
 .addBtn {
     border: 2px solid #7d8085;
     border-radius: 50%;
-    width: 26px;
+    min-width: 26px;
     height: 26px;
     color:#7d8085;
     font-size: x-large;

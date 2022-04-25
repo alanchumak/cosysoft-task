@@ -1,6 +1,7 @@
 .readingList{
     width: 320px;
     height: 100vh;
+    /* height: 95vh; */
     border: 1px solid #e3e4e7;
     border-radius: 5px;
 
@@ -80,7 +81,5 @@
 .text {
     white-space: nowrap;
     overflow: hidden;
-    /* overflow: auto; */
     text-overflow: ellipsis;
-    /* min-width: 0; */
 }

@@ -11,7 +11,10 @@ const fetchData = async () => {
 
 function* workFetchJokes() {
     try {
-        const jokes = yield call(fetchData);
+        let jokes = yield call(fetchData);
+        jokes = jokes.reduce((acc, item) => ({...acc,  [item.id]: item }), 
+            {});
+        console.log(jokes)
         yield put(jokesFetchedFulfilled({jokes}));
     } catch (e) {
         yield put(jokesFetchedFailed({errMsg: e.message}));

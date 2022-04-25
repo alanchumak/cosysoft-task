@@ -1,18 +1,21 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import styles from './ReadingList.module.css'
-import { selectTenJokes, fetchJokes } from '../features/jokes/jokesSlice'
+import { selectReadingList, fetchJokes, jokeRemovedFromReadingList } from '../features/jokes/jokesSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { BookmarkIcon } from './BookmarkIcon'
 
 
-function useClientRect() {
-    const [rect, setRect] = useState(null);
-    const ref = useCallback(node => {
-        if (node !== null) {
-            setRect(node.getBoundingClientRect());
-        }
-    }, []);
-    return [rect, ref];
+const DeleteButton = ({ jokeId }) => {
+    const dispatch = useDispatch()
+    return (
+        <div
+            className={styles.deleteBtn}
+            title='Удалить из списока'
+            onClick={() => dispatch(jokeRemovedFromReadingList({ id: jokeId }))}
+        >
+            ×
+        </div>
+    )
 }
 
 
@@ -26,14 +29,14 @@ const ListItem = ({joke}) => {
                     {content}
                     <div className={styles.timeAgo}>Добавлено: 5 мин назад</div>
                 </div>
-            <div title='Удалить из список' className={styles.deleteBtn}>×</div>
+            <DeleteButton jokeId={joke.id}/>
         </div>
     )
 }
 
 export const ReadingList = () => {
     const dispatch = useDispatch()
-    const jokes = useSelector(selectTenJokes)
+    const jokes = useSelector(selectReadingList)
     const jokesStatus = useSelector(state => state.jokes.status)
 
     useEffect(() => {
@@ -42,7 +45,9 @@ export const ReadingList = () => {
     },
         [jokesStatus, dispatch])
 
-    const content = jokes.map(item => <ListItem key={item.id} joke={item} />)
+    // const content = jokes.map(item => <ListItem key={item.id} joke={item} />)
+    const content = Object.keys(jokes).map(id => <ListItem key={id} joke={jokes[id]} />)
+
 
     return(
         <div className={styles.readingList}>
