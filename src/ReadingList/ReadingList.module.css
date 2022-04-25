@@ -14,7 +14,7 @@
 
     margin-left: 15px;
     cursor: default;
-    /* overflow: auto; */
+    overflow: auto;
 }
 
 .listItem {
@@ -94,4 +94,25 @@
     padding-left: 25px;
     padding-top: 12px;
   font-weight: bold;
+}
+
+.jokeModalFormContent{
+        /* height: 75px; */
+        border: 1px solid #e3e4e7;
+        border-radius: 5px;
+    
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+    
+        margin-bottom: 5px;
+        padding: 10px;
+    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-top: 35px;
 }

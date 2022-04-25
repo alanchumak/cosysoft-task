@@ -1,22 +1,20 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+
+// const initialState = localStorage.getItem('reduxState') ?
+//   JSON.parse(localStorage.getItem('reduxState'))
+//   : {
+//     jokes: [],
+//     readingList: [],
+//     status: 'idle',
+//     error: null
+//   };
 
 const initialState = {
-  jokes: {},
-  readingList: {},
-  status: 'idle',
-  error: null
-};
-
-
-// export const fetchJokes = createAsyncThunk('jokes/fetchJokes',
-//   async () => {
-//     const url = 'https://karljoke.herokuapp.com/jokes/ten'
-//     const response = await fetch(url)
-//     const jokes = await response.json()
-//     return jokes;
-//   }
-// );
-
+    jokes: [],
+    readingList: [],
+    status: 'idle',
+    error: null
+  }
 
 export const jokesSlice = createSlice({
   name: 'jokes',
@@ -35,14 +33,17 @@ export const jokesSlice = createSlice({
     fetchJokes(){},
     jokeSavedToReadingList(state, action) {
       const {id} = action.payload
-      // const joke = state.jokes.find(item => item.id == id)
-      state.readingList[id] = state.jokes[id]
+      const joke = state.jokes.find(item => item.id == id)
+      state.readingList.push(joke)
+      // state.readingList[id] = state.jokes[id]
     },
     jokeRemovedFromReadingList(state, action) {
       const { id } = action.payload
-      // const joke = state.jokes.find(item => item.id == id)
+      const joke = state.readingList.find(item => item.id == id)
+      const index = state.readingList.indexOf(joke)
+      state.readingList.splice(index, 1)
       // state.readingList.push(joke)
-      delete state.readingList[id]
+      // delete state.readingList[id]
     }
 
   },

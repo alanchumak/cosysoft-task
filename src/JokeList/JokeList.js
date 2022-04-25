@@ -20,8 +20,8 @@ export const JokeList = () => {
         dispatch(fetchJokes())
     }    
 
-    // const content = jokes.map(item => <Joke key={item.id} joke={item} />)
-    const content = Object.keys(jokes).map(id => <Joke key={id} joke={jokes[id]} />)
+    const content = jokes.map(item => <Joke key={item.id} joke={item} />)
+    // const content = Object.keys(jokes).map(id => <Joke key={id} joke={jokes[id]} />)
 
     return(
         <div className={styles.jokeList}>
