@@ -2,38 +2,7 @@ import React, { useEffect } from 'react'
 import styles from './Joke.module.css'
 import { selectTenJokes, fetchJokes, jokeSavedToReadingList } from '../features/jokes/jokesSlice'
 import { useSelector, useDispatch } from 'react-redux'
-
-
-const SaveButton = ({jokeId}) =>{
-    const dispatch = useDispatch()
-    return (
-        <div
-            className={styles.addBtn}
-            title='Добавить в мой список'
-            onClick={() => dispatch(jokeSavedToReadingList({ id: jokeId})) }
-        >
-            +
-        </div>
-    )
-}
-
-
-const Joke = ({joke}) => {
-    return(
-        <div className={styles.joke}>
-            <div>
-            <div>
-                <span className={styles.setup}>Setup:</span> {joke.setup}
-            </div>
-            <div>
-                <span className={styles.punchline}>Punchline:</span> {joke.punchline}
-            </div>
-            </div>
-            <SaveButton jokeId={joke.id}/>
-        </div>
-    )
-}
-
+import { Joke } from './Joke'
 
 
 export const JokeList = () => {
@@ -55,7 +24,7 @@ export const JokeList = () => {
     const content = Object.keys(jokes).map(id => <Joke key={id} joke={jokes[id]} />)
 
     return(
-        <div>
+        <div className={styles.jokeList}>
             <button onClick={onClicked}>Получить 10 новых шуток</button>
             {content}
             

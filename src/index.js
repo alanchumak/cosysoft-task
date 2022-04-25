@@ -8,8 +8,11 @@ import * as serviceWorker from './serviceWorker';
 import { JokeList } from './JokeList';
 import { ReadingList } from './ReadingList';
 import {App} from './App'
+import ReactModal from 'react-modal';
+
 
 /* Добавить overflow: auto; */
+// ReactModal.setAppElement('#root');
 
 ReactDOM.render(
   <React.StrictMode>

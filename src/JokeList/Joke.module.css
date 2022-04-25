@@ -11,7 +11,7 @@
     font-size: 14px;
     line-height: 22px;
 
-    margin: 15px;
+    margin-bottom: 15px;
     padding: 10px;
 
     display: flex;
@@ -45,6 +45,7 @@
     margin-right: 7px;
 
     display: none;
+    margin-left: 14px;
 }
 
 .joke:hover .addBtn{
@@ -65,5 +66,12 @@
 
 .punchline{
     color: rgba(134, 3, 106, 0.863);
+}
+
+
+.jokeList{
+    width: 550px;
+    max-width: 550px;
+    min-width: 200px;
 }
 
